@@ -1,0 +1,36 @@
+<!--
+*
+*
+* Author : Mary Hurley
+* Assignment : WE4.1 Mobile Web Application, Digital Skills Academy
+* Tite : Angular ToDo App
+* Student ID: D15128601
+* Date: 2016/09/01
+*
+* This partial displays the input fields for the user to enter the name and the todo and 
+* the button to add or remove a todo from the list.
+
+* Code Reuse/ref
+* Ref: website link to code referenced or the book, authors name and page number
+*-->
+
+<div class="container" ng-controller="TodoController">
+    <h1><img src="images/BlackPages.png"> {{title}}</h1>
+    <form class="horizontal">
+        <div class="form-group">
+            <input class="textfield" ng-model="inputName" placeholder="Who's doing it... " class="form-control" >
+            <input class="textfield" ng-model="inputJob"  placeholder="What's to do... " class="form-control"> 
+        </div>
+        <button type="submit" class="btn-sm btn-info "ng-click="todoAdd()" ><i class="glyphicon glyphicon-plus-sign"></i> Add </button>
+        <button class="btn-sm" ng-click="remove()"><i class="glyphicon glyphicon-trash"></i> Remove </button> 
+    </form>
+    <br>
+    <ul class="list-unstyled">
+        <li ng-repeat="todo in todoList">         
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.todoName}} {{":"}} {{todo.todoJob}}</span> 
+        </li>
+    </ul>
+    <br>
+   <a href="#sort"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Who's Doing What... </a>
+</div>
